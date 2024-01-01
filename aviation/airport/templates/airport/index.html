@@ -1,0 +1,69 @@
+{% extends 'airport/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    {% block body %}
+            
+        <h2 style="text-align: center;">Homepage</h2>
+        <br>
+        <h4 style="text-align: center;">Endpoints</h4>
+        <br>
+        
+        <div style="display: flex;">
+        <ul style="list-style-type: none;">
+            <!-- Link to a list of all airports -->
+            <li><a href="{% url 'airport:airport' %}">List of world airports</a></li>
+            <br>
+            <li><a href="{% url 'airport:asia' %}">List of airports in Asia</a></li>
+            <br>
+            <li><a href="{% url 'airport:africa' %}">List of airports in Africa</a></li>
+            <br>
+            <li><a href="{% url 'airport:oceania' %}">List of airports in Oceania</a></li>
+            <br>
+            <li><a href="{% url 'airport:southamerica' %}">List of airports in South and Central America</a></li>
+            <br>
+            <li><a href="{% url 'airport:antartica' %}">List of airports in Antartica</a></li>
+            <br>
+            <li><a href="{% url 'airport:northamerica' %}">List of airports in North America</a></li>
+        </ul>
+
+
+        <br>
+
+        <ul>
+            <li>POST http://localhost:8000/add add a new airport to the list of airports</li>
+            <a href="http://localhost:8000/add">http://localhost:8000/add</a>
+            
+            <li>GET http://localhost:8000/airport/[airport_id]/ returns a selected airport and its description, [airport_id] is a placeholder for the specific ID of the airport</li>
+            <a href="http://localhost:8000/airport/3/">http://localhost:8000/airport/3/</a>
+
+            <li>GET http://localhost:8000/airport/ returns a list of all airports</li>
+            <a href="http://localhost:8000/airport/">http://localhost:8000/airport/</a>
+
+            <li>UPDATE http://localhost:8000/update/[airport_id]/ updates the information of a selected airport, [airport_id] is a placeholder for the specific ID of the airport</li>
+            <a href="http://localhost:8000/update/9/">http://localhost:8000/update/9/</a>
+
+            <li>DELETE http://localhost:8000/delete/[airport_id]/ delete a selected airport from the list, [airport_id] is a placeholder for the specific ID of the airport</li>
+            <a href="http://localhost:8000/delete/9/">http://localhost:8000/delete/9/</a>
+
+            <li>API http://localhost:8000/api/</li>
+            <a href="http://localhost:8000/api/">http://localhost:8000/api/</a>
+        </ul>
+
+        <div style="float: right;">
+            {% load static %}
+            <img src="{% static 'images/Minnie.jpg' %}" alt="Minnie at the airport" style="width: 80%; height: auto;">
+            <p>© Disney. This image is used for educational purposes and is the property of Disney.</p>
+        </div>
+    </div>
+    {% endblock %}
+
+</body>
+</html>

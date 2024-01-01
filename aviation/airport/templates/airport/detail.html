@@ -1,0 +1,28 @@
+{% extends 'airport/base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Name of the airport: {{ airport.airport_name }}</h2>
+            <h4>Type of airport: {{ airport.airport_type }}</h4>
+            <h4>Latitude degree: {{ airport.latitude }}</h4>
+            <h4>Longitude degree: {{ airport.longitude }}</h4>
+            <h4>Elevation in meters: {{ airport.elevation }}</h4>
+            <h4>Continent: {{ airport.continent }}</h4>
+            <h4>Country: {{ airport.country }}</h4>
+            <h4>Municipality: {{ airport.municipality }}</h4>
+            <a class="btn btn-primary" href="{% url 'airport:update_airport' airport.airport_id %}">Edit</a>
+            <a class="btn btn-secondary" href="{% url 'airport:delete_airport' airport.airport_id %}">Delete</a>
+            <a class="btn btn-light" href="{% url 'airport:airport' %}">Cancel</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
